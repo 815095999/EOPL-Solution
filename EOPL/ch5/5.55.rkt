@@ -1,0 +1,3 @@
+#lang eopl
+; 因为之前的联系是在没有mutex上写的，因此本题全部重改比较麻烦，就不写了
+; 写的话只需要在每个thread新建之后分配给他一个mutex，初始化为close，接受消息后为open，receive的时候wait一下mutex就可以了

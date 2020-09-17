@@ -1,0 +1,10 @@
+(define parse-expression
+  (lambda (datum)
+    (cond ((symbol? datum) (var-exp datum))
+          ((pair? datum)
+           (if (eqv? (car datum) ’lambda)
+               (if (symbol? (caadr datum))
+                   (lambda-exp (car (cadr datum)) (parse-expression (caddr datum)))
+                   (error "lambda-exp's symbol is invalid"))
+               (app-exp (parse-expression (car datum)) (parse-expression (cadr datum))))
+          (else (report-invalid-concrete-syntax datum)))))

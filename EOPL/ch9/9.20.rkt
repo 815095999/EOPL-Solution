@@ -1,0 +1,1 @@
+; 不行，因为send exp func()必须要先知道exp的type，然而这是需要调用value-of的，如果在带有type的语言中，是可以允许的。
